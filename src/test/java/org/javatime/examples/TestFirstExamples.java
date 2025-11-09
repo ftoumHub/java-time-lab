@@ -1,22 +1,33 @@
 package org.javatime.examples;
 
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestFirstExamples {
 
     private final FirstExamples firstExamples = new FirstExamples();
+
+    @Test
+    @Order(0)
+    public void fail_on_wrong_value_for_days() {
+        DateTimeException exception = assertThrows(DateTimeException.class, () -> {
+            LocalDate.of(2025, Month.JUNE, 45);
+        });
+
+        // Vérifie le message exact ou une partie du message
+        String expectedMessagePart = "Invalid value for DayOfMonth (valid values 1 - 28/31): 45";
+        assertTrue(exception.getMessage().contains(expectedMessagePart),
+                "Le message devrait contenir : " + expectedMessagePart);
+    }
 
     @Test
     @Order(1)
