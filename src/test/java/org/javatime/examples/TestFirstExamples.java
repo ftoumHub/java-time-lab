@@ -31,25 +31,25 @@ public class TestFirstExamples {
 
     @Test
     @Order(1)
-    public void verify_henry_date_of_birth_is_correct() {
-        final LocalDate henry_viii_date_of_birth = firstExamples.getHenrysBirthday();
-        assertEquals(1491, henry_viii_date_of_birth.getYear());
-        assertEquals(28, henry_viii_date_of_birth.getDayOfMonth());
-        assertEquals(Month.JUNE, henry_viii_date_of_birth.getMonth());
+    public void verify_einstein_date_of_birth_is_correct() {
+        final LocalDate einstein_date_of_birth = firstExamples.getEinsteinBirthday();
+        assertEquals(1879, einstein_date_of_birth.getYear());
+        assertEquals(14, einstein_date_of_birth.getDayOfMonth());
+        assertEquals(Month.MARCH, einstein_date_of_birth.getMonth());
     }
 
     @Test
     @Order(2)
-    public void test_time_is_13_51() {
+    public void test_time_is_11_30() {
         final LocalTime localTime = firstExamples.getSampleLocalTime();
-        assertEquals(13, localTime.getHour());
-        assertEquals(51, localTime.getMinute());
+        assertEquals(11, localTime.getHour());
+        assertEquals(30, localTime.getMinute());
         assertEquals(0, localTime.getSecond());
     }
 
     @Test
     @Order(3)
-    public void test_henry_birth_and_time() {
+    public void test_einstein_birth_and_time() {
         final LocalDateTime combined = firstExamples.getSampleLocalDateTime();
         verifyCombinedDateTime(combined);
     }
@@ -73,11 +73,11 @@ public class TestFirstExamples {
     }
 
     private void verifyCombinedDateTime(LocalDateTime combined) {
-        assertEquals(1491, combined.getYear());
-        assertEquals(28, combined.getDayOfMonth());
-        assertEquals(Month.JUNE, combined.getMonth());
-        assertEquals(13, combined.getHour());
-        assertEquals(51, combined.getMinute());
+        assertEquals(1879, combined.getYear());
+        assertEquals(14, combined.getDayOfMonth());
+        assertEquals(Month.MARCH, combined.getMonth());
+        assertEquals(11, combined.getHour());
+        assertEquals(30, combined.getMinute());
         assertEquals(0, combined.getSecond());
     }
 }

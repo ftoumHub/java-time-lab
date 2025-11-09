@@ -8,24 +8,24 @@ public class FirstExamples {
     private final static ZoneId EUROPE_LONDRES = ZoneId.of("Europe/London");
 
 
-    // Créer une date simple - Henry VIII Birthday - June 28th 1491
-    public LocalDate getHenrysBirthday() {
+    // Créer une date simple - Albert EINSTEIN - 14 Mars 1879
+    public LocalDate getEinsteinBirthday() {
         // L'API LocalDate est basée sur des méthodes factory, pas de constructeur publique.
-        return LocalDate.of(1491, Month.JUNE, 28);
+        return LocalDate.of(1879, Month.MARCH, 14);
     }
 
-    // Créer une heure simple - 13:51
+    // Créer une heure simple - 11:30
     public LocalTime getSampleLocalTime() {
-        return LocalTime.of(13, 51);
+        return LocalTime.of(11, 30);
     }
 
     // Créer un LocalDateTime à partir des données précédentes
     public LocalDateTime getSampleLocalDateTime() {
-        return LocalDateTime.of(1491, Month.JUNE, 28, 13, 51);
+        return LocalDateTime.of(1879, Month.MARCH, 14, 11, 30);
     }
 
     public LocalDateTime getComponentDateTime() {
-        return LocalDateTime.of(getHenrysBirthday(), getSampleLocalTime());
+        return LocalDateTime.of(getEinsteinBirthday(), getSampleLocalTime());
     }
 
     // Conversion LocalDateTime => LocalDate
